@@ -1,0 +1,38 @@
+MainLayout:
+<MainLayout>:
+    BoxLayout:
+        orientation:"vertical"
+        size:root.size
+        BoxLayout:
+            orientation:"vertical"
+            TextInput:
+                id:"querry"
+                on_text:root.update_text(self)
+                font_size:root.font_size
+                font_color:root.font_color
+            Label:
+                text:root.answer_text
+                font_size:root.font_size
+        BoxLayout:
+            size_hint:1,.6
+            BoxLayout:
+                orientation:"vertical"
+                Button:
+                    text:"+"
+                    font_size:root.font_size
+                    on_press:root.increase()
+                    color:root.font_color
+                Label:
+                    text:root.token_text
+                    font_size:root.font_size
+                    color:root.font_color
+                Button:
+                    text:"-"
+                    font_size:root.font_size+root.font_size*.5
+                    on_press:root.decrease()
+                    color:root.font_color
+            Button:
+                text:' gentrate\nresponse'
+                color:root.font_color
+                font_size:root.font_size
+                on_release:root.generate_response()
